@@ -690,13 +690,14 @@
   </div>
 
   <script>
-  function showLanguage(language, updateHash = true) {
+  function showLanguage(language) {
     const englishContent = document.getElementById("content-en");
     const spanishContent = document.getElementById("content-es");
     const englishButton = document.getElementById("btn-en");
     const spanishButton = document.getElementById("btn-es");
 
-    const currentHash = window.location.hash;
+    const isDeletionPage =
+      window.location.hash === "#data-deletion";
 
     if (language === "es") {
       englishContent.classList.add("hidden");
@@ -707,15 +708,14 @@
 
       document.documentElement.lang = "es";
 
-      // If the user is viewing the data deletion section,
-      // move to the equivalent Spanish section.
-      if (updateHash && currentHash === "#data-deletion") {
-        history.replaceState(null, "", "#eliminacion-datos");
-
+      if (isDeletionPage) {
         setTimeout(function () {
           document
             .getElementById("eliminacion-datos")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
+            .scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
         }, 50);
       }
 
@@ -728,40 +728,30 @@
 
       document.documentElement.lang = "en";
 
-      // If the user is viewing the Spanish data deletion section,
-      // move to the equivalent English section.
-      if (updateHash && currentHash === "#eliminacion-datos") {
-        history.replaceState(null, "", "#data-deletion");
-
+      if (isDeletionPage) {
         setTimeout(function () {
           document
             .getElementById("data-deletion")
-            .scrollIntoView({ behavior: "smooth", block: "start" });
+            .scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
         }, 50);
       }
     }
   }
 
   window.addEventListener("DOMContentLoaded", function () {
-    if (window.location.hash === "#eliminacion-datos") {
-      showLanguage("es", false);
+    showLanguage("en");
 
+    if (window.location.hash === "#data-deletion") {
       setTimeout(function () {
         document
-          .getElementById("eliminacion-datos")
-          .scrollIntoView({ block: "start" });
-      }, 50);
-
-    } else {
-      showLanguage("en", false);
-
-      if (window.location.hash === "#data-deletion") {
-        setTimeout(function () {
-          document
-            .getElementById("data-deletion")
-            .scrollIntoView({ block: "start" });
-        }, 50);
-      }
+          .getElementById("data-deletion")
+          .scrollIntoView({
+            block: "start"
+          });
+      }, 100);
     }
   });
 </script>
