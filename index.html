@@ -3,448 +3,733 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Privacy Policy for Tandami">
-  <title>Privacy Policy - Tandami</title>
+
+  <title>Tandami - Privacy Policy</title>
 
   <style>
+    :root {
+      --purple: #6c4bc3;
+      --purple-dark: #52369f;
+      --yellow: #f5c542;
+      --text: #292733;
+      --muted: #6f6b78;
+      --background: #faf9fc;
+      --card: #ffffff;
+      --border: #e8e4ef;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
+      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         Helvetica, Arial, sans-serif;
-      background: #faf9f7;
-      color: #333;
+      background: var(--background);
+      color: var(--text);
       line-height: 1.65;
     }
 
-    main {
-      max-width: 760px;
+    .container {
+      max-width: 850px;
       margin: 0 auto;
-      padding: 60px 24px 80px;
+      padding: 40px 20px 70px;
     }
 
-    h1 {
-      color: #6d4bc3;
+    .header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: var(--purple);
       margin-bottom: 4px;
     }
 
-    h2 {
-      color: #4d3b76;
-      margin-top: 36px;
-    }
-
-    .app-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: #6d4bc3;
-    }
-
-    .effective-date {
-      color: #777;
-      margin-top: 4px;
-      margin-bottom: 30px;
+    .tagline {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 0;
     }
 
     .language-switcher {
       display: flex;
+      justify-content: center;
       gap: 10px;
-      margin: 28px 0 36px;
+      margin: 24px 0 30px;
     }
 
     .language-switcher button {
-      border: 1px solid #6d4bc3;
-      border-radius: 20px;
-      padding: 8px 18px;
-      background: transparent;
-      color: #6d4bc3;
-      font-size: 0.95rem;
+      border: 1px solid var(--purple);
+      background: white;
+      color: var(--purple);
+      padding: 9px 18px;
+      border-radius: 999px;
       cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: 0.2s ease;
     }
 
+    .language-switcher button:hover,
     .language-switcher button.active {
-      background: #6d4bc3;
+      background: var(--purple);
       color: white;
     }
 
-    a {
-      color: #6d4bc3;
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 34px;
+      box-shadow: 0 5px 20px rgba(55, 38, 90, 0.05);
     }
 
-    footer {
-      margin-top: 56px;
-      padding-top: 24px;
-      border-top: 1px solid #ddd;
-      color: #777;
+    h1 {
+      margin-top: 0;
+      color: var(--purple-dark);
+      font-size: 2rem;
+    }
+
+    h2 {
+      margin-top: 34px;
+      color: var(--purple-dark);
+      font-size: 1.3rem;
+    }
+
+    p,
+    li {
+      color: var(--text);
+    }
+
+    .effective-date {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    a {
+      color: var(--purple);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .deletion-section {
+      scroll-margin-top: 20px;
+      background: #faf8ff;
+      border: 1px solid #e4dcf8;
+      border-radius: 14px;
+      padding: 4px 22px 20px;
+      margin-top: 34px;
+    }
+
+    .deletion-section h2 {
+      margin-top: 20px;
+    }
+
+    .contact-box {
+      background: #f6f2ff;
+      border-left: 4px solid var(--purple);
+      padding: 16px 18px;
+      margin-top: 18px;
+      border-radius: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
       font-size: 0.9rem;
+      margin-top: 28px;
     }
 
     .hidden {
       display: none;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 24px 14px 50px;
+      }
+
+      .card {
+        padding: 24px 20px;
+        border-radius: 14px;
+      }
+
+      .brand {
+        font-size: 2rem;
+      }
+
+      h1 {
+        font-size: 1.65rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<main>
+  <div class="container">
 
-  <div class="app-name">Tandami</div>
+    <header class="header">
+      <div class="brand">Tandami</div>
+      <p class="tagline">Less arguments. More harmony.</p>
 
-  <div class="language-switcher">
-    <button id="btn-en" class="active" onclick="setLanguage('en')">
-      English
-    </button>
-    <button id="btn-es" onclick="setLanguage('es')">
-      Español
-    </button>
+      <div class="language-switcher">
+        <button id="btn-en" class="active" onclick="showLanguage('en')">
+          English
+        </button>
+
+        <button id="btn-es" onclick="showLanguage('es')">
+          Español
+        </button>
+      </div>
+    </header>
+
+    <main class="card">
+
+      <!-- =========================================================
+           ENGLISH
+           ========================================================= -->
+
+      <section id="content-en">
+
+        <h1>Privacy Policy</h1>
+
+        <p class="effective-date">
+          Effective date: September 16, 2026
+        </p>
+
+        <p>
+          Tandami is a family turn-tracking application designed to help
+          parents and families keep everyday turns fair and organized.
+          Your privacy is important to us, and Tandami is designed to keep
+          family and turn information on your device.
+        </p>
+
+        <h2>1. Information stored on your device</h2>
+
+        <p>
+          Tandami may store information that you enter into the app,
+          including:
+        </p>
+
+        <ul>
+          <li>Family member names and avatars</li>
+          <li>Turn names and configurations</li>
+          <li>Participants in turns</li>
+          <li>Turn schedules</li>
+          <li>Turn history</li>
+          <li>Express lists</li>
+          <li>App preferences and settings</li>
+        </ul>
+
+        <p>
+          This family and turn information is stored locally on your device.
+          Tandami does not transmit this information to servers operated by
+          Tandami.
+        </p>
+
+        <p>
+          Clearing the app's data or uninstalling Tandami may remove locally
+          stored information, subject to any backup or restore functionality
+          provided by your device or operating system.
+        </p>
+
+        <h2>2. Accounts</h2>
+
+        <p>
+          Tandami does not require you to create an account or sign in to use
+          the app.
+        </p>
+
+        <h2>3. Tandami Unlimited and purchases</h2>
+
+        <p>
+          Tandami offers an optional one-time purchase called Tandami
+          Unlimited. On Android, purchases are processed through Google Play.
+        </p>
+
+        <p>
+          Tandami uses RevenueCat to help validate purchases, determine
+          whether Tandami Unlimited is available to a user, and restore
+          purchase access when applicable.
+        </p>
+
+        <p>
+          In connection with purchases, RevenueCat may process technical and
+          transaction-related information such as:
+        </p>
+
+        <ul>
+          <li>Device and operating system information</li>
+          <li>Service timestamps</li>
+          <li>Google Play purchase tokens</li>
+          <li>Transaction information</li>
+          <li>Purchase history</li>
+        </ul>
+
+        <p>
+          Tandami does not receive or store your credit card or other payment
+          card details. Payment information is handled by Google Play and its
+          payment providers.
+        </p>
+
+        <h2>4. How purchase information is used</h2>
+
+        <p>
+          Purchase-related and technical information may be used to:
+        </p>
+
+        <ul>
+          <li>Provide app functionality</li>
+          <li>Validate purchases</li>
+          <li>Determine Tandami Unlimited access</li>
+          <li>Restore purchases</li>
+          <li>Prevent fraud and purchase abuse</li>
+          <li>Understand purchase-related usage and analytics</li>
+        </ul>
+
+        <h2>5. Sharing and sale of personal information</h2>
+
+        <p>
+          Tandami does not sell your personal information.
+        </p>
+
+        <p>
+          Family members, turns, schedules, preferences, and turn history
+          stored in Tandami are not transmitted to Tandami-operated servers.
+        </p>
+
+        <p>
+          Purchase-related information may be processed by Google Play and
+          RevenueCat as necessary to provide and manage Tandami Unlimited.
+          Their handling of information is governed by their respective
+          privacy policies.
+        </p>
+
+        <h2>6. Advertising</h2>
+
+        <p>
+          Tandami does not display third-party advertising.
+        </p>
+
+        <h2>7. Security</h2>
+
+        <p>
+          Family and turn information is stored locally and relies on the
+          security protections provided by your device and operating system.
+        </p>
+
+        <p>
+          Information transmitted to third-party purchase services is
+          transmitted using encrypted network connections.
+        </p>
+
+        <h2>8. Data retention</h2>
+
+        <p>
+          Family and turn information remains on your device until you delete
+          it, clear Tandami's application data, or uninstall the app, subject
+          to any backup or restore functionality provided by your device or
+          operating system.
+        </p>
+
+        <p>
+          Purchase-related records may be retained by Google Play, RevenueCat,
+          or other payment providers according to their policies and as
+          necessary for transaction processing, fraud prevention, accounting,
+          legal obligations, and purchase restoration.
+        </p>
+
+        <h2>9. Children's privacy</h2>
+
+        <p>
+          Tandami is designed to help parents and families manage family
+          turns. The app does not require child accounts.
+        </p>
+
+        <p>
+          Tandami does not intentionally collect family member names, turn
+          information, schedules, or turn history on Tandami-operated servers.
+          This information remains stored locally on the device.
+        </p>
+
+        <!-- DATA DELETION - ENGLISH -->
+
+        <div id="data-deletion" class="deletion-section">
+
+          <h2>10. Request data deletion</h2>
+
+          <p>
+            Tandami does not require an account. Family members, turns,
+            schedules, preferences, Express lists, and turn history are stored
+            locally on your device.
+          </p>
+
+          <p>
+            You can remove locally stored information by deleting it within
+            Tandami where applicable, clearing Tandami's application data, or
+            uninstalling the app. Device or operating-system backup services
+            may maintain backups according to their own settings and policies.
+          </p>
+
+          <p>
+            If you would like to request deletion of purchase-related
+            information processed on behalf of Tandami by RevenueCat, please
+            contact us using the email address below:
+          </p>
+
+          <div class="contact-box">
+            <strong>Email:</strong>
+            <a href="mailto:tandami.app@gmail.com?subject=Tandami%20Data%20Deletion%20Request">
+              tandami.app@gmail.com
+            </a>
+            <br>
+            <strong>Subject:</strong> Tandami Data Deletion Request
+          </div>
+
+          <p>
+            We will process eligible deletion requests as soon as reasonably
+            possible. Some transaction records may continue to be retained by
+            Google Play, RevenueCat, or other payment providers when required
+            for legal, accounting, fraud prevention, transaction processing,
+            or record-keeping purposes.
+          </p>
+
+        </div>
+
+        <h2>11. Changes to this Privacy Policy</h2>
+
+        <p>
+          We may update this Privacy Policy from time to time. When changes
+          are made, the updated policy will be published on this page with a
+          revised effective date when appropriate.
+        </p>
+
+        <h2>12. Contact us</h2>
+
+        <p>
+          If you have questions about this Privacy Policy or Tandami's privacy
+          practices, contact us at:
+        </p>
+
+        <p>
+          <a href="mailto:tandami.app@gmail.com">
+            tandami.app@gmail.com
+          </a>
+        </p>
+
+      </section>
+
+
+      <!-- =========================================================
+           ESPAÑOL
+           ========================================================= -->
+
+      <section id="content-es" class="hidden">
+
+        <h1>Política de privacidad</h1>
+
+        <p class="effective-date">
+          Fecha de entrada en vigor: 16 de septiembre de 2026
+        </p>
+
+        <p>
+          Tandami es una aplicación para gestionar turnos familiares,
+          diseñada para ayudar a padres y familias a mantener los turnos
+          cotidianos de manera justa y organizada. Tu privacidad es
+          importante para nosotros, y Tandami está diseñada para mantener
+          la información de la familia y de los turnos en tu dispositivo.
+        </p>
+
+        <h2>1. Información almacenada en tu dispositivo</h2>
+
+        <p>
+          Tandami puede almacenar la información que ingreses en la
+          aplicación, incluyendo:
+        </p>
+
+        <ul>
+          <li>Nombres y avatares de miembros de la familia</li>
+          <li>Nombres y configuraciones de turnos</li>
+          <li>Participantes de los turnos</li>
+          <li>Horarios de los turnos</li>
+          <li>Historial de turnos</li>
+          <li>Listas Express</li>
+          <li>Preferencias y configuraciones de la aplicación</li>
+        </ul>
+
+        <p>
+          Esta información sobre la familia y los turnos se almacena
+          localmente en tu dispositivo. Tandami no transmite esta información
+          a servidores operados por Tandami.
+        </p>
+
+        <p>
+          Borrar los datos de la aplicación o desinstalar Tandami puede
+          eliminar la información almacenada localmente, sujeto a cualquier
+          función de copia de seguridad o restauración proporcionada por tu
+          dispositivo o sistema operativo.
+        </p>
+
+        <h2>2. Cuentas</h2>
+
+        <p>
+          Tandami no requiere que crees una cuenta ni que inicies sesión para
+          utilizar la aplicación.
+        </p>
+
+        <h2>3. Tandami Unlimited y compras</h2>
+
+        <p>
+          Tandami ofrece una compra única opcional llamada Tandami Unlimited.
+          En Android, las compras se procesan a través de Google Play.
+        </p>
+
+        <p>
+          Tandami utiliza RevenueCat para ayudar a validar las compras,
+          determinar si Tandami Unlimited está disponible para un usuario y
+          restaurar el acceso a las compras cuando corresponda.
+        </p>
+
+        <p>
+          En relación con las compras, RevenueCat puede procesar información
+          técnica y relacionada con las transacciones, como:
+        </p>
+
+        <ul>
+          <li>Información del dispositivo y del sistema operativo</li>
+          <li>Marcas de tiempo del servicio</li>
+          <li>Tokens de compra de Google Play</li>
+          <li>Información de transacciones</li>
+          <li>Historial de compras</li>
+        </ul>
+
+        <p>
+          Tandami no recibe ni almacena los datos de tu tarjeta de crédito u
+          otras tarjetas de pago. La información de pago es gestionada por
+          Google Play y sus proveedores de pago.
+        </p>
+
+        <h2>4. Cómo se utiliza la información de compras</h2>
+
+        <p>
+          La información técnica y relacionada con compras puede utilizarse
+          para:
+        </p>
+
+        <ul>
+          <li>Proporcionar funcionalidades de la aplicación</li>
+          <li>Validar compras</li>
+          <li>Determinar el acceso a Tandami Unlimited</li>
+          <li>Restaurar compras</li>
+          <li>Prevenir fraude y abuso relacionado con compras</li>
+          <li>Comprender el uso y las analíticas relacionadas con compras</li>
+        </ul>
+
+        <h2>5. Intercambio y venta de información personal</h2>
+
+        <p>
+          Tandami no vende tu información personal.
+        </p>
+
+        <p>
+          Los miembros de la familia, turnos, horarios, preferencias e
+          historial de turnos almacenados en Tandami no se transmiten a
+          servidores operados por Tandami.
+        </p>
+
+        <p>
+          La información relacionada con compras puede ser procesada por
+          Google Play y RevenueCat según sea necesario para proporcionar y
+          administrar Tandami Unlimited. El tratamiento de información por
+          parte de estos servicios se rige por sus respectivas políticas de
+          privacidad.
+        </p>
+
+        <h2>6. Publicidad</h2>
+
+        <p>
+          Tandami no muestra publicidad de terceros.
+        </p>
+
+        <h2>7. Seguridad</h2>
+
+        <p>
+          La información de la familia y de los turnos se almacena localmente
+          y depende de las protecciones de seguridad proporcionadas por tu
+          dispositivo y sistema operativo.
+        </p>
+
+        <p>
+          La información transmitida a servicios externos relacionados con
+          compras se envía mediante conexiones de red cifradas.
+        </p>
+
+        <h2>8. Retención de datos</h2>
+
+        <p>
+          La información de la familia y de los turnos permanece en tu
+          dispositivo hasta que la elimines, borres los datos de Tandami o
+          desinstales la aplicación, sujeto a las funciones de copia de
+          seguridad o restauración proporcionadas por tu dispositivo o
+          sistema operativo.
+        </p>
+
+        <p>
+          Google Play, RevenueCat u otros proveedores de pago pueden conservar
+          registros relacionados con compras de acuerdo con sus políticas y
+          cuando sea necesario para el procesamiento de transacciones,
+          prevención del fraude, contabilidad, obligaciones legales y
+          restauración de compras.
+        </p>
+
+        <h2>9. Privacidad de los menores</h2>
+
+        <p>
+          Tandami está diseñada para ayudar a padres y familias a gestionar
+          turnos familiares. La aplicación no requiere cuentas para menores.
+        </p>
+
+        <p>
+          Tandami no recopila intencionalmente nombres de miembros de la
+          familia, información de turnos, horarios o historial de turnos en
+          servidores operados por Tandami. Esta información permanece
+          almacenada localmente en el dispositivo.
+        </p>
+
+        <!-- ELIMINACIÓN DE DATOS - ESPAÑOL -->
+
+        <div id="eliminacion-datos" class="deletion-section">
+
+          <h2>10. Solicitar eliminación de datos</h2>
+
+          <p>
+            Tandami no requiere una cuenta. Los miembros de la familia,
+            turnos, horarios, preferencias, listas Express e historial de
+            turnos se almacenan localmente en tu dispositivo.
+          </p>
+
+          <p>
+            Puedes eliminar la información almacenada localmente borrándola
+            desde Tandami cuando corresponda, borrando los datos de la
+            aplicación o desinstalando la aplicación. Los servicios de copia
+            de seguridad del dispositivo o del sistema operativo pueden
+            conservar copias según sus propias configuraciones y políticas.
+          </p>
+
+          <p>
+            Si deseas solicitar la eliminación de información relacionada con
+            compras procesada en nombre de Tandami por RevenueCat, contáctanos
+            utilizando el siguiente correo electrónico:
+          </p>
+
+          <div class="contact-box">
+            <strong>Correo:</strong>
+            <a href="mailto:tandami.app@gmail.com?subject=Solicitud%20de%20eliminacion%20de%20datos%20de%20Tandami">
+              tandami.app@gmail.com
+            </a>
+            <br>
+            <strong>Asunto:</strong>
+            Solicitud de eliminación de datos de Tandami
+          </div>
+
+          <p>
+            Procesaremos las solicitudes de eliminación que correspondan tan
+            pronto como sea razonablemente posible. Google Play, RevenueCat u
+            otros proveedores de pago pueden continuar conservando
+            determinados registros de transacciones cuando sea necesario por
+            motivos legales, contables, de prevención del fraude,
+            procesamiento de transacciones o mantenimiento de registros.
+          </p>
+
+        </div>
+
+        <h2>11. Cambios en esta Política de privacidad</h2>
+
+        <p>
+          Podemos actualizar esta Política de privacidad ocasionalmente.
+          Cuando se realicen cambios, la política actualizada se publicará en
+          esta página y se modificará la fecha de entrada en vigor cuando
+          corresponda.
+        </p>
+
+        <h2>12. Contacto</h2>
+
+        <p>
+          Si tienes preguntas sobre esta Política de privacidad o sobre las
+          prácticas de privacidad de Tandami, puedes contactarnos en:
+        </p>
+
+        <p>
+          <a href="mailto:tandami.app@gmail.com">
+            tandami.app@gmail.com
+          </a>
+        </p>
+
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      © 2026 Tandami
+    </footer>
+
   </div>
 
-  <!-- ENGLISH -->
-
-  <section id="content-en">
-
-    <h1>Privacy Policy</h1>
-    <div class="effective-date">
-      Effective date: September 16, 2026
-    </div>
-
-    <p>
-      Tandami respects your privacy. This Privacy Policy explains how
-      information is handled when you use the Tandami mobile application.
-    </p>
-
-    <h2>Information stored on your device</h2>
-
-    <p>
-      Tandami does not require you to create an account. Information you enter
-      to use the app, such as family member names, avatars, turn configurations,
-      schedules, preferences, and turn history, is stored locally on your device.
-    </p>
-
-    <p>
-      Tandami does not transmit this family and turn information to
-      Tandami-operated servers.
-    </p>
-
-    <p>
-      If you uninstall the app or clear its local data, locally stored information
-      may be permanently deleted unless it is preserved by a device or platform
-      backup mechanism.
-    </p>
-
-    <h2>In-app purchases</h2>
-
-    <p>
-      Tandami offers an optional one-time purchase called Tandami Unlimited.
-    </p>
-
-    <p>
-      Purchases on Android are processed through Google Play. Tandami also uses
-      RevenueCat to manage purchase validation and access to purchased features.
-    </p>
-
-    <p>
-      RevenueCat may process technical and transaction information necessary to
-      provide these services, including device and operating-system information,
-      app usage timestamps related to its service, Google Play purchase tokens,
-      transaction information, and purchase history.
-    </p>
-
-    <p>
-      Tandami does not receive or store your payment card details.
-    </p>
-
-    <h2>How information is used</h2>
-
-    <p>
-      Purchase-related and technical information processed through RevenueCat is
-      used to provide app functionality, validate purchases, maintain access to
-      Tandami Unlimited, restore purchases, prevent purchase fraud, and provide
-      purchase-related analytics.
-    </p>
-
-    <h2>Sharing of information</h2>
-
-    <p>
-      Tandami does not sell your personal information.
-    </p>
-
-    <p>
-      Purchase-related information is processed by service providers required to
-      operate in-app purchases, including Google Play and RevenueCat, subject to
-      their respective privacy policies and terms.
-    </p>
-
-    <p>
-      Tandami does not use your family member names, turn history, schedules, or
-      other locally stored family information for advertising.
-    </p>
-
-    <h2>Advertising</h2>
-
-    <p>
-      Tandami does not display third-party advertising.
-    </p>
-
-    <h2>Data security</h2>
-
-    <p>
-      Family and turn information is stored locally on your device and is
-      protected by the security mechanisms provided by your device and operating
-      system.
-    </p>
-
-    <p>
-      Data transmitted to third-party purchase services is encrypted in transit.
-    </p>
-
-    <h2>Data retention and deletion</h2>
-
-    <p>
-      Family and turn information stored by Tandami remains on your device until
-      you delete it through the app, clear the app's data, or uninstall the app,
-      subject to any device or platform backup mechanisms.
-    </p>
-
-    <p>
-      Purchase records may be retained by Google Play and RevenueCat as necessary
-      to process purchases, restore entitlements, prevent fraud, maintain
-      transaction records, and comply with applicable legal obligations.
-    </p>
-
-    <p>
-      If you have a privacy or data-deletion request relating to purchase
-      information associated with Tandami, contact us at the email address below.
-    </p>
-
-    <h2>Children's privacy</h2>
-
-    <p>
-      Tandami is designed to help parents and families manage everyday turns.
-      Tandami does not require children to create accounts and does not
-      intentionally collect family member information entered into the app on
-      Tandami-operated servers.
-    </p>
-
-    <h2>Changes to this Privacy Policy</h2>
-
-    <p>
-      We may update this Privacy Policy when Tandami's features, services, or
-      legal requirements change. The effective date at the top of this page will
-      indicate when the policy was last updated.
-    </p>
-
-    <h2>Contact</h2>
-
-    <p>
-      For privacy questions or data-deletion requests related to Tandami:
-      <br>
-      <a href="mailto:tandami.app@gmail.com">
-        tandami.app@gmail.com
-      </a>
-    </p>
-
-  </section>
-
-
-  <!-- ESPAÑOL -->
-
-  <section id="content-es" class="hidden">
-
-    <h1>Política de privacidad</h1>
-    <div class="effective-date">
-      Fecha de entrada en vigor: 16 de septiembre de 2026
-    </div>
-
-    <p>
-      Tandami respeta tu privacidad. Esta Política de privacidad explica cómo
-      se maneja la información cuando utilizas la aplicación móvil Tandami.
-    </p>
-
-    <h2>Información almacenada en tu dispositivo</h2>
-
-    <p>
-      Tandami no requiere que crees una cuenta. La información que ingresas
-      para utilizar la aplicación, como nombres de miembros de la familia,
-      avatares, configuraciones de turnos, horarios, preferencias e historial
-      de turnos, se almacena localmente en tu dispositivo.
-    </p>
-
-    <p>
-      Tandami no transmite esta información familiar ni la información de tus
-      turnos a servidores operados por Tandami.
-    </p>
-
-    <p>
-      Si desinstalas la aplicación o eliminas sus datos locales, la información
-      almacenada localmente puede eliminarse permanentemente, salvo que sea
-      conservada mediante algún mecanismo de copia de seguridad del dispositivo
-      o de la plataforma.
-    </p>
-
-    <h2>Compras dentro de la aplicación</h2>
-
-    <p>
-      Tandami ofrece una compra opcional de pago único llamada
-      Tandami Unlimited.
-    </p>
-
-    <p>
-      En Android, las compras se procesan a través de Google Play. Tandami
-      también utiliza RevenueCat para gestionar la validación de compras y el
-      acceso a las funciones adquiridas.
-    </p>
-
-    <p>
-      RevenueCat puede procesar información técnica y de transacciones necesaria
-      para proporcionar estos servicios, incluyendo información del dispositivo
-      y del sistema operativo, marcas de tiempo relacionadas con el uso de su
-      servicio, tokens de compra de Google Play, información de transacciones e
-      historial de compras.
-    </p>
-
-    <p>
-      Tandami no recibe ni almacena los datos de tu tarjeta de pago.
-    </p>
-
-    <h2>Cómo se utiliza la información</h2>
-
-    <p>
-      La información técnica y relacionada con compras procesada a través de
-      RevenueCat se utiliza para proporcionar las funciones de la aplicación,
-      validar compras, mantener el acceso a Tandami Unlimited, restaurar compras,
-      prevenir fraude relacionado con compras y proporcionar análisis
-      relacionados con las compras.
-    </p>
-
-    <h2>Compartición de información</h2>
-
-    <p>
-      Tandami no vende tu información personal.
-    </p>
-
-    <p>
-      La información relacionada con las compras es procesada por los
-      proveedores de servicios necesarios para operar las compras dentro de la
-      aplicación, incluyendo Google Play y RevenueCat, de acuerdo con sus
-      respectivas políticas de privacidad y términos.
-    </p>
-
-    <p>
-      Tandami no utiliza los nombres de los miembros de tu familia, historial de
-      turnos, horarios ni otra información familiar almacenada localmente con
-      fines publicitarios.
-    </p>
-
-    <h2>Publicidad</h2>
-
-    <p>
-      Tandami no muestra publicidad de terceros.
-    </p>
-
-    <h2>Seguridad de los datos</h2>
-
-    <p>
-      La información familiar y de los turnos se almacena localmente en tu
-      dispositivo y está protegida mediante los mecanismos de seguridad
-      proporcionados por tu dispositivo y sistema operativo.
-    </p>
-
-    <p>
-      Los datos transmitidos a servicios externos relacionados con las compras
-      se cifran durante su transmisión.
-    </p>
-
-    <h2>Retención y eliminación de datos</h2>
-
-    <p>
-      La información familiar y de turnos almacenada por Tandami permanece en
-      tu dispositivo hasta que la elimines desde la aplicación, borres los datos
-      de la aplicación o desinstales Tandami, sujeto a cualquier mecanismo de
-      copia de seguridad del dispositivo o de la plataforma.
-    </p>
-
-    <p>
-      Google Play y RevenueCat pueden conservar registros de compras cuando sea
-      necesario para procesar compras, restaurar derechos de acceso, prevenir
-      fraude, mantener registros de transacciones y cumplir con las obligaciones
-      legales aplicables.
-    </p>
-
-    <p>
-      Si tienes una solicitud relacionada con privacidad o eliminación de datos
-      de compra asociados con Tandami, puedes comunicarte con nosotros mediante
-      la dirección de correo electrónico indicada a continuación.
-    </p>
-
-    <h2>Privacidad de los menores</h2>
-
-    <p>
-      Tandami está diseñada para ayudar a padres y familias a gestionar turnos
-      cotidianos. Tandami no requiere que los menores creen cuentas y no recopila
-      intencionalmente en servidores operados por Tandami la información de los
-      miembros de la familia ingresada en la aplicación.
-    </p>
-
-    <h2>Cambios en esta Política de privacidad</h2>
-
-    <p>
-      Podemos actualizar esta Política de privacidad cuando cambien las
-      funciones o servicios de Tandami, o los requisitos legales aplicables.
-      La fecha indicada al comienzo de esta página mostrará cuándo fue
-      actualizada la política.
-    </p>
-
-    <h2>Contacto</h2>
-
-    <p>
-      Para consultas sobre privacidad o solicitudes de eliminación de datos
-      relacionadas con Tandami:
-      <br>
-      <a href="mailto:tandami.app@gmail.com">
-        tandami.app@gmail.com
-      </a>
-    </p>
-
-  </section>
-
-  <footer>
-    © 2026 Tandami
-  </footer>
-
-</main>
-
-<script>
-  function setLanguage(language) {
-    const englishContent = document.getElementById("content-en");
-    const spanishContent = document.getElementById("content-es");
-    const englishButton = document.getElementById("btn-en");
-    const spanishButton = document.getElementById("btn-es");
-
-    if (language === "es") {
-      englishContent.classList.add("hidden");
-      spanishContent.classList.remove("hidden");
-
-      englishButton.classList.remove("active");
-      spanishButton.classList.add("active");
-
-      document.documentElement.lang = "es";
-      document.title = "Política de privacidad - Tandami";
-    } else {
-      spanishContent.classList.add("hidden");
-      englishContent.classList.remove("hidden");
-
-      spanishButton.classList.remove("active");
-      englishButton.classList.add("active");
-
-      document.documentElement.lang = "en";
-      document.title = "Privacy Policy - Tandami";
+  <script>
+    function showLanguage(language) {
+      const englishContent = document.getElementById("content-en");
+      const spanishContent = document.getElementById("content-es");
+      const englishButton = document.getElementById("btn-en");
+      const spanishButton = document.getElementById("btn-es");
+
+      if (language === "es") {
+        englishContent.classList.add("hidden");
+        spanishContent.classList.remove("hidden");
+
+        englishButton.classList.remove("active");
+        spanishButton.classList.add("active");
+
+        document.documentElement.lang = "es";
+      } else {
+        spanishContent.classList.add("hidden");
+        englishContent.classList.remove("hidden");
+
+        spanishButton.classList.remove("active");
+        englishButton.classList.add("active");
+
+        document.documentElement.lang = "en";
+      }
     }
-  }
-</script>
+
+    /*
+      If Google Play or a user opens the direct deletion URL:
+      .../#data-deletion
+
+      keep English visible because it is the default language and
+      Google's review can access the deletion instructions immediately.
+    */
+    window.addEventListener("DOMContentLoaded", function () {
+      if (window.location.hash === "#eliminacion-datos") {
+        showLanguage("es");
+      } else {
+        showLanguage("en");
+      }
+    });
+  </script>
 
 </body>
 </html>
