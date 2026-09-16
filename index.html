@@ -690,46 +690,81 @@
   </div>
 
   <script>
-    function showLanguage(language) {
-      const englishContent = document.getElementById("content-en");
-      const spanishContent = document.getElementById("content-es");
-      const englishButton = document.getElementById("btn-en");
-      const spanishButton = document.getElementById("btn-es");
+  function showLanguage(language, updateHash = true) {
+    const englishContent = document.getElementById("content-en");
+    const spanishContent = document.getElementById("content-es");
+    const englishButton = document.getElementById("btn-en");
+    const spanishButton = document.getElementById("btn-es");
 
-      if (language === "es") {
-        englishContent.classList.add("hidden");
-        spanishContent.classList.remove("hidden");
+    const currentHash = window.location.hash;
 
-        englishButton.classList.remove("active");
-        spanishButton.classList.add("active");
+    if (language === "es") {
+      englishContent.classList.add("hidden");
+      spanishContent.classList.remove("hidden");
 
-        document.documentElement.lang = "es";
-      } else {
-        spanishContent.classList.add("hidden");
-        englishContent.classList.remove("hidden");
+      englishButton.classList.remove("active");
+      spanishButton.classList.add("active");
 
-        spanishButton.classList.remove("active");
-        englishButton.classList.add("active");
+      document.documentElement.lang = "es";
 
-        document.documentElement.lang = "en";
+      // If the user is viewing the data deletion section,
+      // move to the equivalent Spanish section.
+      if (updateHash && currentHash === "#data-deletion") {
+        history.replaceState(null, "", "#eliminacion-datos");
+
+        setTimeout(function () {
+          document
+            .getElementById("eliminacion-datos")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
+      }
+
+    } else {
+      spanishContent.classList.add("hidden");
+      englishContent.classList.remove("hidden");
+
+      spanishButton.classList.remove("active");
+      englishButton.classList.add("active");
+
+      document.documentElement.lang = "en";
+
+      // If the user is viewing the Spanish data deletion section,
+      // move to the equivalent English section.
+      if (updateHash && currentHash === "#eliminacion-datos") {
+        history.replaceState(null, "", "#data-deletion");
+
+        setTimeout(function () {
+          document
+            .getElementById("data-deletion")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 50);
       }
     }
+  }
 
-    /*
-      If Google Play or a user opens the direct deletion URL:
-      .../#data-deletion
+  window.addEventListener("DOMContentLoaded", function () {
+    if (window.location.hash === "#eliminacion-datos") {
+      showLanguage("es", false);
 
-      keep English visible because it is the default language and
-      Google's review can access the deletion instructions immediately.
-    */
-    window.addEventListener("DOMContentLoaded", function () {
-      if (window.location.hash === "#eliminacion-datos") {
-        showLanguage("es");
-      } else {
-        showLanguage("en");
+      setTimeout(function () {
+        document
+          .getElementById("eliminacion-datos")
+          .scrollIntoView({ block: "start" });
+      }, 50);
+
+    } else {
+      showLanguage("en", false);
+
+      if (window.location.hash === "#data-deletion") {
+        setTimeout(function () {
+          document
+            .getElementById("data-deletion")
+            .scrollIntoView({ block: "start" });
+        }, 50);
       }
-    });
-  </script>
+    }
+  });
+</script>
 
 </body>
 </html>
